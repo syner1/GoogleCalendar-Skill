@@ -12,7 +12,7 @@ Now is possible to add events with a lot of intents
 Install Using MSM (Mycroft Skill Manager)  not for Mark1
 -------------------
 
-    msm install https://github.com/jcasoft/GoogleCalendar-Skill.git
+    msm install https://github.com/syner1/GoogleCalendar-Skill
 
 
 If it does not work with the MSM method try it with the manual method
@@ -23,7 +23,7 @@ Manual Method not for Mark1
 -------------------
 
     cd  /opt/mycroft/skills
-    git clone https://github.com/jcasoft/GoogleCalendar-Skill.git
+    git clone https://github.com/syner1/GoogleCalendar-Skill
     workon mycroft (Only if you have installed Mycroft on Virtualenv)
     cd GoogleCalendar-Skill
     pip install -r requirements.txt
@@ -39,7 +39,9 @@ Authorize Google Calendar Skill in distro with local web browser, wait web brows
     cd  /opt/mycroft/skills
     workon mycroft
     python GoogleCalendar-Skill
-
+    
+    If no browser installed 
+    	python GoogleCalendar-Skill --noauth_local_webserver
 
 Edit your mycroft.conf
 on "GoogleCalendarSkill"  edit your options (added automatically)
@@ -54,7 +56,7 @@ Manual Method for Mark1
     open SSH session
 
     cd  /opt/mycroft/skills
-    git clone https://github.com/jcasoft/GoogleCalendar-Skill.git
+    git clone https://github.com/syner1/GoogleCalendar-Skill
     cd GoogleCalendar-Skill
     sudo pip install -r requirements.txt
 
@@ -76,7 +78,7 @@ Open the generated link in computer with browser and wait the verification code 
      Enter verification code: 4/oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   
 
 
-The installation process generates automatically the file ~/.mycroft/mycroft.conf and ~/.credentials/mycroft-googlecalendar-skill.json
+The installation process generates automatically the file ~/.credentials/mycroft-googlecalendar-skill.json
 
 
 Then copy the following files and fix the permissions
@@ -93,7 +95,22 @@ on "GoogleCalendarSkill"  edit your options (added automatically)
 
      cd /home/mycroft/.mycroft
      sudo nano mycroft.conf
-
+     
+     "GoogleCalendarSkill": {
+      "reminders_email": 1440,
+      "maxResults": 10,
+      "time_format": 12,
+      "calendar_id": email@gmail.com",
+      "reminders_popup": 10,
+      "attendees_own": "email@gmail.com",
+      "attendees_family": "email@gmail.com",
+      "attendees_work": "email@gmail.com",
+      "loginLevel": 4,
+      "default_duration": 2,
+      "timeZone": "America/Newyork",
+      "loginEnabled": false,
+      "gmt": "-04:00"
+    }
 
 
 Restart Mycroft
@@ -162,3 +179,5 @@ Currently this skill can do the following things to set events to your calendar 
 
 **Enjoy !**
 --------
+
+Credit:  jcasoft
